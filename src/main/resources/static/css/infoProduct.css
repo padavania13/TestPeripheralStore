@@ -1,0 +1,16 @@
+.product_info {
+    display:grid;
+    grid-template-columns: 1fr 2fr;
+    max-width: 1600px;
+    /*margin: 0 auto;*/
+
+}
+
+.product_info img{
+    width:400px;
+    padding: 50px;
+}
+
+.text_section {
+    padding: 50px;
+}

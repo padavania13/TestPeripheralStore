@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}"/>
+</head>
+<header><h1 class="logo" th:href="@{/index}">ARSENAL</h1>
+    <list><a th:href="@{/index}" ><span>Cписок товаров</span></a></list>
+    <nav>
+        <a  class="nav_item"th:href="@{/logout}">Выйти</a>
+        <a class="nav_item" th:href="@{/cart}">Корзина</a>
+    </nav>
+</header>
+<body>
+<p>Заказы</p>
+<div th:each="order : ${orders}">
+  <h3 th:text="'Заказ № ' + ${order.getNumber()}"></h3>
+  <img th:src="'/img/' + ${order.getProduct().imageList[0].getFileName()}" width="300px">
+  <p th:text="'Наименование: ' + ${order.getProduct().getTitle()}"></p>
+  <p th:text="'Количество: ' + ${order.getCount()}"></p>
+  <p th:text="'Цена: ' + ${order.getPrice()}"></p>
+  <p th:text="'Дата заказа: ' + ${#temporals.format(order.getDateTime(), 'dd-MMM-yyyy')}"></p>
+  <p th:text="'Статус: ' + ${order.getStatus()}">
+</div>
+</body>
+</html>

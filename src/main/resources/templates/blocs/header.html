@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Шапка</title>
+<!--    <link rel="stylesheet" type="text/css" href="../../static/css/header.css" th:href="@{/css/header}">-->
+</head>
+<body>
+   <h1 class="logo" th:href="@{/product}">ARSENAL</h1>
+   <list><a th:href="@{/product}" ><span>Cписок товаров</span></a></list>
+    <nav>
+        <a class="nav_item" th:href="@{/login}">Войти</a>
+<!--        <a  th:href="@{/logout}">Выйти</a>-->
+        <a class="nav_item" th:href="@{/cart}">Корзина</a>
+    </nav>
+</body>
+</html>

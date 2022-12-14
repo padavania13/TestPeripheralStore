@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование товара</title>
+</head>
+<body>
+<button onClick="history.back();">Вернуться назад</button>
+<h3>Редактирование товара</h3>
+<form th:method="POST" th:action="@{/admin/product/edit/{id}(id=${product.getId()})}" th:object="${product}" >
+    <label for="title">Наименование: </label>
+    <input type="text" th:field="*{title}" placeholder="Введите наименование товара" id="title">
+    <div style="color: red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+    <br>
+    <br>
+    <label for="category">Категория: </label>
+    <select name="category" th:field="*{category}" id="category">
+        <div th:each="element : ${category}">
+            <option th:text="${element.getName()}" th:value="${element.getId()}"></option>
+        </div>
+    </select>
+    <br>
+    <br>
+    <label for="description">Описание</label>
+    <textarea th:field="*{description}" placeholder="Введите описание товара:" id="description"></textarea>
+    <div style="color: red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+    <br>
+    <br>
+
+    <label for="price">Цена: </label>
+    <input type="number" th:field="*{price}" min="1" step="0.00" id="price">
+    <div style="color: red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
+    <br>
+    <br>
+    <label for="warehouse">Склад: </label>
+    <select name="warehouse" th:field="*{warehouse}" id="warehouse">
+        <div th:each="elem : ${warehouse}">
+            <option th:text="${elem.getName()}" th:value="${elem.getId()}"></option>
+        </div>
+    </select>
+    <br>
+    <br>
+    <label for="seller">Продавец: </label>
+    <textarea th:field="*{seller}" placeholder="Введите данные о продавце" id="seller"></textarea>
+    <div style="color: red" th:if="${#fields.hasErrors('seller')}" th:errors="*{seller}"></div>
+    <br>
+
+<!--    <label for="category">Введите категорию товара: </label>-->
+<!--    <select name="category" th:field="*{category}" id="category">-->
+<!--        <div th:each="element : ${category}">-->
+<!--            <option th:text="${element.getName()}" th:value="${element.getId()}"></option>-->
+<!--        </div>-->
+<!--    </select>-->
+<!--    <br>-->
+<!--    <p style="color: red">Вы можете добавить до 5 фотографий. Первая фотография не может быть пустой т.к она будет являться главной</p>-->
+    <input type="file" name="file_one">
+    <input type="file" name="file_two">
+    <input type="file" name="file_three">
+    <input type="file" name="file_four">
+    <input type="file" name="file_five">
+    <input type="submit" value="Редактировать">
+</form>
+</div>
+</body>
+</html>

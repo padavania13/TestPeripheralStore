@@ -1,0 +1,12 @@
+body {
+    margin:0;
+}
+.cart_items {
+    max-width: 1600px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+.product_item {
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+}

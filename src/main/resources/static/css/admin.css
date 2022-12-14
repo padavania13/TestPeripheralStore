@@ -1,0 +1,9 @@
+table {
+    width:900px;
+    border:1px;
+}
+table th, table td {
+    padding: 5px;
+    border:1px;
+}
+

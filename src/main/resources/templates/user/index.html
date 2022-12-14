@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}"/>
+    <link rel="stylesheet" type="text/css" href="../../static/css/registration.css" th:href="@{/css/product.css}">
+</head>
+<body>
+<header><h1 class="logo" th:href="@{/index}">ARSENAL</h1>
+    <list><a th:href="@{/index}" ><span>Cписок товаров</span></a></list>
+    <nav>
+        <a th:href="@{/orders}">Заказы</a>
+        <a  class="nav_item"th:href="@{/logout}">Выйти</a>
+        <a class="nav_item" th:href="@{/cart}">Корзина</a>
+    </nav>
+</header>
+<!--<header th:insert="~{blocs/header}"></header>-->
+
+<div th:insert="~{product/product :: copy_product_list}"></div>
+
+</div>
+</body>
+</html>

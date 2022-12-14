@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Страница администратора</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/admin.css" th:href="@{/css/admin}">
+</head>
+
+<body>
+<header>
+    <h1>ARSENAL</h1>
+    <nav>
+        <a  class="nav_item"th:href="@{/logout}">Выйти</a>
+
+    </nav>
+</header>
+<h3>Администратор</h3>
+<div>
+<a href="admin/product/add">Добавить товар</a>
+<table>
+    <tr>
+        <th>id</th>
+        <th>Наименование</th>
+        <th>Категория<th>
+        <th>Продавец<th>
+        <th>Склад<th>
+        <th>1</th>
+        <th>2</th>
+
+    </tr>
+
+    <tr th:each="product : ${products}">
+        <td th:text="${product.getId()}">id</td>
+        <td th:text="${product.getTitle()}">Наименование</td>
+        <td th:text="${product.getCategory().getName()}">Категория</td>
+        <td th:text="${product.getSeller()}">Продавец</td>
+        <td th:text="${product.getWarehouse().getName()}">Склад</td>
+        <td><a th:href="@{/admin/product/edit/{id}(id=${product.getId()})}">Редактировать</a>1</td>
+        <td><a th:href="@{/admin/product/delete/{id}(id=${product.getId()})}">Удалить</a>2</td>
+
+    </tr>
+
+</table>
+</div>
+
+</body>
+</html>

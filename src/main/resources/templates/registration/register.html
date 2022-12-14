@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/registration.css" th:href="@{/css/registration.css}">
+    <link rel="stylesheet" type="text/css" href="../../static/css/header.css" th:href="@{/css/header.css}">
+</head>
+<body>
+<header>
+    <h1 class="logo">ARSENAL</h1>
+    <nav>
+        <!--        <a class="nav_item" href="login">Выйти</a>-->
+        <a  th:href="@{/logout}" ></a>
+        <a class="nav_item" href="cart">Корзина</a>
+    </nav>
+</header>
+<div class="tab-sign-in">
+    <h3>Регистрация</h3>
+    <form  method="post" th:action="@{/registration/register}" th:object="${person}">
+        <div class="input-group">
+            <label for="username">Логин</label>
+            <input th:type="text" th:field="*{username}" placeholder="Введите логин" name="username" id="username">
+            <div style="color: red; font-size: 16px" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+        </div>
+        <div class="input-group">
+            <label for="password">Пароль</label>
+            <input th:type="password" th:field="*{password}" placeholder="Введите пароль" name="password" id="password">
+            <div style="color: red; font-size: 16px" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+        </div>
+        <button type="submit" >Зарегестрироваться</button>
+    </form>
+    <a href="login">Войти</a>
+</div>
+</body>
+</html>
